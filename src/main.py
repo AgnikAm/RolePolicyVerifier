@@ -8,7 +8,7 @@ from resource_verification import verify_asterisk_absence
 
 def main():
     if len(sys.argv) != 2:
-        print('Enter: python [file path to main] "[file path to json]"')
+        print('Enter: python <path to main> <path to json>')
         return
     
     json_file_path = sys.argv[1]
@@ -29,9 +29,9 @@ def main():
         return
     
     if validate_iam_role_policy_format(data, SCHEMA):
-        wildcard_absent = verify_asterisk_absence(data)
-        print(f'Lack of wildcard "*" in Resource of subsequent statements: {wildcard_absent}')
-        return wildcard_absent
+        asterisk_absent = verify_asterisk_absence(data)
+        print(f'Lack of "*" in Resource of subsequent statements: {asterisk_absent}')
+        return asterisk_absent
     
     else:
         print('Policy document is not in AWS::IAM::Role Policy format, skipping verification of "*" in Resource.')

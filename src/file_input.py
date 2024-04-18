@@ -1,3 +1,6 @@
+from json import load
+
+
 def load_json_from_file(file_path: str) -> dict:
     """
     Load JSON data from a file.
