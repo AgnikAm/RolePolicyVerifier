@@ -1,14 +1,16 @@
-from json import load, JSONDecodeError
-
 def load_json_from_file(file_path: str) -> dict:
+    """
+    Load JSON data from a file.
+
+    Args:
+        file_path (str): The path to the JSON file to load.
+
+    Returns:
+        dict: A dictionary representing the JSON data loaded from the file.
+    """
     try:
         with open(file_path, 'r') as file:
             return load(file)
         
-    except JSONDecodeError as e:
-        print(f'Decoding error: {e}')
-        exit(1)
-
-    except FileNotFoundError as e:
-        print(f'File {file_path} not found')
-        exit(1)
+    except Exception:
+        raise

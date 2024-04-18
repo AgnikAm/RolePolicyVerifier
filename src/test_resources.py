@@ -1,6 +1,6 @@
 import unittest
+from file_input import load_json_from_file
 from resource_verification import verify_asterisk_absence
-from main import load_json_from_file
 
 
 class TestResourcesVerification(unittest.TestCase):

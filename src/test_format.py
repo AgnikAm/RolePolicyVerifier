@@ -1,6 +1,6 @@
 import unittest
-from format_validation import validate_iam_role_policy_format
-from main import load_json_from_file, SCHEMA
+from file_input import load_json_from_file
+from format_validation import validate_iam_role_policy_format, SCHEMA
 
 
 class TestFormatValidation(unittest.TestCase):
