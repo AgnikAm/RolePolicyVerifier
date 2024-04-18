@@ -1,0 +1,38 @@
+{
+  "PolicyName": "root",
+  "PolicyDocument": {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "IamListAccess1",
+              "Effect": "Allow",
+              "Action": [
+                  "iam:ListRoles",
+                  "iam:ListUsers"
+              ],
+              "Resource": "*"
+          },
+          {
+            "Sid": "IamListAccess2",
+            "Effect": "Deny",
+            "Action": [
+                "iam:ListRoles",
+                "iam:ListUsers"
+            ],
+            "Resource": [
+                "arn:aws:s3:::confidential-data",
+                "arn:aws:s3:::confidential-data/*"
+            ]
+           },
+           {
+            "Sid": "IamListAccess3",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListRoles",
+                "iam:ListUsers"
+            ],
+            "Resource": "arn:aws:s3:::confidential-data/1/test/object.jpg"
+           }
+      ]
+  }
+}
