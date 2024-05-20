@@ -11,9 +11,5 @@ def load_json_from_file(file_path: str) -> dict:
     Returns:
         dict: A dictionary representing the JSON data loaded from the file.
     """
-    try:
-        with open(file_path, 'r') as file:
-            return load(file)
-        
-    except Exception:
-        raise
+    with open(file_path, 'r') as file:
+        return load(file)

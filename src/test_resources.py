@@ -37,7 +37,7 @@ class TestResourcesVerification(unittest.TestCase):
             verify_asterisk_absence(
                 load_json_from_file('assets/asterisk test/asterisk_nonasterisk.json')
             ),
-            [False, False, False]
+            [False, True, False]
         )
 
 
@@ -56,6 +56,15 @@ class TestResourcesVerification(unittest.TestCase):
                 load_json_from_file('assets/asterisk test/empty_list_resource.json')
             ),
             [True]
+        )
+
+    
+    def test_asterisk_as_part_of_statement(self):
+        self.assertEqual(
+            verify_asterisk_absence(
+                load_json_from_file('assets/asterisk test/asterisk_as_part_of_statement.json')
+            ),
+            [False, True, False]
         )
 
 

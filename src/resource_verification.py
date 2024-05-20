@@ -14,7 +14,7 @@ def verify_asterisk_absence(json_data: dict[str, Any]) -> list[bool]:
         True indicates absence of asterisk, False indicates presence of asterisk.
     """
     return [
-        all(resource != "*" for resource in statement.get('Resource'))
+        True if statement.get('Resource') == [] else any(resource != "*" for resource in statement.get('Resource'))
         if statement.get('Resource') is not None else True
         for statement in json_data.get('PolicyDocument').get('Statement')
     ]
